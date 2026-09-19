@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Painel WadXs ★</title>
+<meta name="theme-color" content="#09090d">
+<style>
+:root{
+  --accent:#b800ff;
+  --bg:#09090d;
+  --panel:#15151d;
+  --text:#f5f5f7;
+  --muted:#9d9da8;
+  --cross:#ff2020;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,Arial,sans-serif;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px;
+}
+
+.wrap{
+  width:min(310px,calc(100vw - 20px));
+  margin:auto;
+}
+
+.card{
+  background:rgba(21,21,29,.96);
+  border:1px solid #2a2a36;
+  border-radius:18px;
+  box-shadow:0 12px 38px #000b;
+  overflow:hidden;
+}
+
+.hero{
+  padding:13px;
+  text-align:center;
+  background:linear-gradient(145deg,#1c1025,#111118);
+}
+
+.logo-icon{
+  width:54px;
+  height:54px;
+  margin:auto;
+  border-radius:15px;
+  border:2px solid #b800ff;
+  background:linear-gradient(145deg,#21002d,#08080d);
+  display:grid;
+  place-items:center;
+  font-size:28px;
+  box-shadow:0 0 18px #b800ff55;
+}
+
+h1{
+  font-size:18px;
+  margin:7px 0 2px;
+}
+
+.sub{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.content{
+  padding:11px;
+}
+
+.hidden{
+  display:none!important;
+}
+
+label{
+  display:block;
+  color:#c7c7d0;
+  font-size:12px;
+  margin:10px 0 7px;
+}
+
+input,select,button{
+  width:100%;
+  border:0;
+  border-radius:12px;
+  padding:13px;
+  background:#0d0d13;
+  color:#fff;
+  border:1px solid #30303d;
+  font-size:14px;
+}
+
+button{
+  background:linear-gradient(90deg,#7e00ff,#d000ff);
+  font-weight:800;
+  border:0;
+  cursor:pointer;
+}
+
+button:active{
+  transform:scale(.98);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+}
+
+.color{
+  height:42px;
+  padding:0;
+  border-radius:12px;
+  cursor:pointer;
+  border:1px solid #30303d;
+}
+
+.red{background:#ff2020}
+.blue{background:#168cff}
+.purple{background:#9b2cff}
+.black{background:#050505}
+.white{background:#fff}
+
+.tabs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+  margin-bottom:10px;
+}
+
+.tab{
+  background:#1b1b25;
+  border:1px solid #2e2e39;
+  padding:9px;
+  border-radius:10px;
+  text-align:center;
+  font-size:12px;
+  cursor:pointer;
+  user-select:none;
+}
+
+.tab.active{
+  border-color:#b800ff;
+  color:#e9baff;
+}
+
+.section{
+  background:#101017;
+  border:1px solid #292934;
+  border-radius:14px;
+  padding:12px;
+  margin-top:10px;
+}
+
+.cross{
+  height:150px;
+  display:grid;
+  place-items:center;
+  background:#08080b;
+  border-radius:14px;
+  position:relative;
+  overflow:hidden;
+}
+
+.crosshair{
+  width:62px;
+  height:62px;
+  position:relative;
+}
+
+.crosshair:before,
+.crosshair:after{
+  content:"";
+  position:absolute;
+  background:var(--cross);
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+}
+
+.crosshair:before{
+  width:62px;
+  height:3px;
+}
+
+.crosshair:after{
+  height:62px;
+  width:3px;
+}
+
+.dot{
+  position:absolute;
+  width:10px;
+  height:10px;
+  background:var(--cross);
+  border-radius:50%;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:2;
+}
+
+.target{
+  width:72px;
+  height:108px;
+  border:2px solid #ff3030;
+  border-radius:45% 45% 30% 30%;
+  position:absolute;
+  opacity:.65;
+}
+
+.target:before{
+  content:"";
+  position:absolute;
+  width:34px;
+  height:34px;
+  border:2px solid #ff3030;
+  border-radius:50%;
+  left:50%;
+  top:-18px;
+  transform:translateX(-50%);
+}
+
+.small{
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.45;
+}
+
+.value{
+  font-size:18px;
+  font-weight:900;
+  color:#e9baff;
+}
+
+.notice{
+  padding:10px;
+  border-radius:12px;
+  background:#211426;
+  border:1px solid #4a2759;
+  color:#d9bfe4;
+  font-size:11px;
+  margin-top:10px;
+}
+
+.minimize{
+  position:absolute;
+  right:8px;
+  top:8px;
+  width:26px;
+  height:26px;
+  padding:0;
+  border-radius:50%;
+  background:#292933;
+  border:1px solid #444;
+  color:#fff;
+  font-size:14px;
+}
+
+#panel{
+  position:relative;
+}
+
+.compact-hide .content,
+.compact-hide .hero .sub{
+  display:none!important;
+}
+
+.compact-hide .hero{
+  padding:8px;
+}
+
+.menu{
+  position:fixed;
+  right:10px;
+  bottom:10px;
+  width:min(285px,calc(100% - 20px));
+  background:#12121aee;
+  border:1px solid #343442;
+  border-radius:20px;
+  padding:12px;
+  box-shadow:0 20px 60px #000b;
+  backdrop-filter:blur(14px);
+}
+
+.menu .top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+}
+
+.pill{
+  padding:7px 10px;
+  border-radius:999px;
+  background:#25152e;
+  color:#e7caff;
+  font-size:11px;
+}
+
+@media(max-height:600px){
+  .section{padding:9px;margin-top:7px}
+  .cross{height:105px}
+  .hero{padding:9px}
+  .content{padding:9px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- LOGIN -->
+  <div class="card" id="login">
+    <div class="hero">
+      <div class="logo-icon">☠️</div>
+      <h1>Painel WadXs ★</h1>
+      <div class="sub">Mini painel • Sensibilidade • Mira visual</div>
+    </div>
+
+    <div class="content">
+      <label>Digite a Key</label>
+      <input id="key" type="password" placeholder="Digite sua key" autocomplete="off">
+      <button style="margin-top:12px" onclick="unlock()">ENTRAR</button>
+      <div id="err" class="small" style="color:#ff7474;margin-top:9px"></div>
+      <div class="notice">
+        Interface local de demonstração.
+        Não injeta código, não altera o Free Fire
+        e não cria aimbot/cheat.
+      </div>
+    </div>
+  </div>
+
+  <!-- PAINEL -->
+  <div class="card hidden" id="panel">
+    <button class="minimize" onclick="toggleCompact()" aria-label="Minimizar">−</button>
+
+    <div class="hero">
+      <div class="logo-icon">☠️</div>
+      <h1>Painel WadXs ★</h1>
+      <div class="sub">Mini painel • Sensibilidade • Mira visual</div>
+    </div>
+
+    <div class="content">
+      <div class="tabs">
+        <div class="tab active" onclick="showTab('sens',this)">Sensi</div>
+        <div class="tab" onclick="showTab('mira',this)">Mira</div>
+        <div class="tab" onclick="showTab('treino',this)">Treino</div>
+      </div>
+
+      <!-- SENSIBILIDADE -->
+      <div id="sens" class="section">
+        <label>DPI</label>
+        <input id="dpi" type="range" min="500" max="1000" value="700"
+          oninput="document.getElementById('dpiv').textContent=this.value">
+        <div class="value">DPI <span id="dpiv">700</span></div>
+
+        <label>Arma / perfil</label>
+        <select id="weapon">
+          <option>Geral</option>
+          <option>Águia do Deserto</option>
+          <option>M1014</option>
+          <option>MP40</option>
+          <option>UMP</option>
+          <option>SCAR</option>
+          <option>XM8</option>
+          <option>AWM</option>
+          <option>M1887</option>
+        </select>
+
+        <button style="margin-top:12px" onclick="generate()">GERAR SENSIBILIDADE</button>
+
+        <div class="section" id="result" style="margin-top:12px">
+          <div class="small">Resultado</div>
+          <div class="value" id="resultText" style="font-size:14px;line-height:1.4">
+            Defina DPI e gere uma configuração.
+          </div>
+        </div>
+      </div>
+
+      <!-- MIRA -->
+      <div id="mira" class="section hidden">
+        <label>Cor da mira</label>
+        <div class="grid">
+          <button class="color red" onclick="setColor('#ff2020')" aria-label="Vermelho"></button>
+          <button class="color blue" onclick="setColor('#168cff')" aria-label="Azul"></button>
+          <button class="color purple" onclick="setColor('#9b2cff')" aria-label="Roxo"></button>
+          <button class="color black" onclick="setColor('#050505')" aria-label="Preto"></button>
+          <button class="color white" onclick="setColor('#ffffff')" aria-label="Branco"></button>
+        </div>
+
+        <label>Formato</label>
+        <select id="shape" onchange="drawCross()">
+          <option value="plus">Cruz</option>
+          <option value="dot">Ponto</option>
+          <option value="circle">Círculo</option>
+        </select>
+
+        <div class="cross" id="crossbox" style="margin-top:10px">
+          <div class="crosshair" id="crosshair">
+            <div class="dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TREINO -->
+      <div id="treino" class="section hidden">
+        <div class="small">Alvo visual para treino de posicionamento da mira.</div>
+        <div class="cross" style="margin-top:10px">
+          <div class="target"></div>
+          <div class="crosshair"><div class="dot"></div></div>
+        </div>
+        <div class="notice">
+          O alvo é apenas visual: não fixa automaticamente em jogadores
+          nem controla o jogo.
+        </div>
+      </div>
+
+      <!-- WHATSAPP -->
+      <div class="section" style="margin-top:10px;text-align:center">
+        <div class="small" style="margin-bottom:8px">🎁 WZ FLASH ACC</div>
+        <button onclick="openWhatsAppChannel()" style="background:#25D366;color:#07130a">
+          📲 SEGUIR CANAL NO WHATSAPP
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MENU FLUTUANTE -->
+<div class="menu" id="floatMenu">
+  <div class="top">
+    <b>WadXs ★</b>
+    <span class="pill">WADXS</span>
+  </div>
+  <div class="small">PAINEL WADXS ★</div>
+</div>
+
+<script>
+const KEY = "WadXsfreestyle999";
+
+function toggleCompact(){
+  document.getElementById("panel").classList.toggle("compact-hide");
+}
+
+function unlock(){
+  const value = document.getElementById("key").value;
+  if(value === KEY){
+    document.getElementById("login").classList.add("hidden");
+    document.getElementById("panel").classList.remove("hidden");
+    document.getElementById("err").textContent = "";
+  }else{
+    document.getElementById("err").textContent = "Key incorreta.";
+  }
+}
+
+function showTab(id, el){
+  ["sens","mira","treino"].forEach(function(x){
+    document.getElementById(x).classList.toggle("hidden", x !== id);
+  });
+  document.querySelectorAll(".tab").forEach(function(x){
+    x.classList.remove("active");
+  });
+  el.classList.add("active");
+}
+
+function generate(){
+  const dpi = Number(document.getElementById("dpi").value);
+  const weapon = document.getElementById("weapon").value;
+
+  // perfil por arma (ajuste base diferente)
+  const profiles = {
+    "Geral":              { g: 0, r: -4, x2: -9, x4: -14, s: -20 },
+    "Águia do Deserto":   { g: 8, r: 2,  x2: -4, x4: -10, s: -18 },
+    "M1014":              { g: 12,r: 6,  x2: 0,  x4: -6,  s: -14 },
+    "MP40":               { g: -6,r: -10,x2: -15,x4: -20, s: -26 },
+    "UMP":                { g: -4,r: -8, x2: -13,x4: -18, s: -24 },
+    "SCAR":               { g: 2, r: -2, x2: -7, x4: -12, s: -18 },
+    "XM8":                { g: 4, r: 0,  x2: -5, x4: -11, s: -17 },
+    "AWM":                { g: -10,r:-14,x2: -18,x4: -22, s: -8  },
+    "M1887":              { g: 14,r: 8,  x2: 2,  x4: -4,  s: -12 }
+  };
+
+  const p = profiles[weapon] || profiles["Geral"];
+
+  // base pela DPI + pequena variação a cada clique
+  const dpiFactor = (dpi - 500) * 0.085;
+  const jitter = () => Math.floor(Math.random() * 7) - 3; // -3 a +3
+
+  let geral  = Math.round(185 - dpiFactor + p.g  + jitter());
+  let red    = Math.round(175 - dpiFactor + p.r  + jitter());
+  let x2     = Math.round(160 - dpiFactor + p.x2 + jitter());
+  let x4     = Math.round(145 - dpiFactor + p.x4 + jitter());
+  let sniper = Math.round(130 - dpiFactor + p.s  + jitter());
+
+  // limites seguros do Free Fire
+  const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+  geral  = clamp(geral,  50, 200);
+  red    = clamp(red,    40, 195);
+  x2     = clamp(x2,     30, 185);
+  x4     = clamp(x4,     25, 175);
+  sniper = clamp(sniper, 20, 170);
+
+  document.getElementById("resultText").innerHTML =
+    "<b>" + weapon + "</b><br>" +
+    "Geral <b>" + geral + "</b> · Red Dot <b>" + red + "</b><br>" +
+    "2x <b>" + x2 + "</b> · 4x <b>" + x4 + "</b> · Sniper <b>" + sniper + "</b>";
+}
+
+function setColor(color){
+  document.documentElement.style.setProperty("--cross", color);
+}
+
+function drawCross(){
+  const shape = document.getElementById("shape").value;
+  const element = document.getElementById("crosshair");
+  element.className = "crosshair";
+  element.style = "";
+  if(shape === "dot"){
+    element.style = "width:12px;height:12px;";
+  }else if(shape === "circle"){
+    element.style = "border:3px solid var(--cross);border-radius:50%;width:40px;height:40px;";
+  }
+}
+
+function openWhatsAppChannel(){
+  const url = "https://whatsapp.com/channel/0029VbD3j2I9Bb64vEX7ic1v";
+  window.open(url, "_blank");
+}
+
+document.getElementById("key").addEventListener("keydown", function(e){
+  if(e.key === "Enter") unlock();
+});
+</script>
+</body>
+</html>
