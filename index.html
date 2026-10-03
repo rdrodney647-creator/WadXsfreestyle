@@ -1,543 +1,483 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Painel WadXs ★</title>
-<meta name="theme-color" content="#09090d">
-<style>
-:root{
-  --accent:#b800ff;
-  --bg:#09090d;
-  --panel:#15151d;
-  --text:#f5f5f7;
-  --muted:#9d9da8;
-  --cross:#ff2020;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WZ FLASH ACC 🎁 | Contas, Diamantes, Unlock & Sensis - Free Fire</title>
+  <meta name="description" content="WZ FLASH ACC - Contas Free Fire, Diamantes via ID, Unlock All, Sensis, Xits e Painéis. 100% confiável. Entrega rápida!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #08080e;
+      --card: #12121c;
+      --orange: #ff6b00;
+      --orange-light: #ff8c33;
+      --gold: #ffd700;
+      --green: #25d366;
+      --text: #f0f0f5;
+      --muted: #9a9aab;
+      --border: rgba(255, 107, 0, 0.22);
+    }
 
-*{box-sizing:border-box}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter,system-ui,Arial,sans-serif;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
 
-.wrap{
-  width:min(310px,calc(100vw - 20px));
-  margin:auto;
-}
+    .bg-glow {
+      position: fixed;
+      top: -25%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(circle, rgba(255, 107, 0, 0.11) 0%, transparent 68%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-.card{
-  background:rgba(21,21,29,.96);
-  border:1px solid #2a2a36;
-  border-radius:18px;
-  box-shadow:0 12px 38px #000b;
-  overflow:hidden;
-}
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 18px;
+      position: relative;
+      z-index: 1;
+    }
 
-.hero{
-  padding:13px;
-  text-align:center;
-  background:linear-gradient(145deg,#1c1025,#111118);
-}
+    /* Header */
+    header {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(8, 8, 14, 0.9);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-.logo-icon{
-  width:54px;
-  height:54px;
-  margin:auto;
-  border-radius:15px;
-  border:2px solid #b800ff;
-  background:linear-gradient(145deg,#21002d,#08080d);
-  display:grid;
-  place-items:center;
-  font-size:28px;
-  box-shadow:0 0 18px #b800ff55;
-}
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-h1{
-  font-size:18px;
-  margin:7px 0 2px;
-}
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--orange);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
 
-.sub{
-  color:var(--muted);
-  font-size:13px;
-}
+    .logo span { color: var(--gold); }
 
-.content{
-  padding:11px;
-}
+    .badge {
+      background: linear-gradient(135deg, var(--orange), #ff4500);
+      color: #fff;
+      font-size: 0.68rem;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
 
-.hidden{
-  display:none!important;
-}
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 18px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--orange); }
 
-label{
-  display:block;
-  color:#c7c7d0;
-  font-size:12px;
-  margin:10px 0 7px;
-}
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 55px 0 35px;
+    }
 
-input,select,button{
-  width:100%;
-  border:0;
-  border-radius:12px;
-  padding:13px;
-  background:#0d0d13;
-  color:#fff;
-  border:1px solid #30303d;
-  font-size:14px;
-}
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.7rem, 5vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      background: linear-gradient(90deg, #fff, var(--orange-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-button{
-  background:linear-gradient(90deg,#7e00ff,#d000ff);
-  font-weight:800;
-  border:0;
-  cursor:pointer;
-}
+    .hero .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 22px;
+    }
 
-button:active{
-  transform:scale(.98);
-}
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 230, 118, 0.1);
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      color: #00e676;
+      padding: 9px 18px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:8px;
-}
+    /* Section titles */
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.35rem;
+      text-align: center;
+      margin: 45px 0 28px;
+      color: var(--orange);
+      letter-spacing: 1px;
+    }
 
-.color{
-  height:42px;
-  padding:0;
-  border-radius:12px;
-  cursor:pointer;
-  border:1px solid #30303d;
-}
+    /* Promo cards with images */
+    .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 20px;
+    }
 
-.red{background:#ff2020}
-.blue{background:#168cff}
-.purple{background:#9b2cff}
-.black{background:#050505}
-.white{background:#fff}
+    .promo-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
 
-.tabs{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:7px;
-  margin-bottom:10px;
-}
+    .promo-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--orange);
+      box-shadow: 0 14px 35px rgba(255, 107, 0, 0.18);
+    }
 
-.tab{
-  background:#1b1b25;
-  border:1px solid #2e2e39;
-  padding:9px;
-  border-radius:10px;
-  text-align:center;
-  font-size:12px;
-  cursor:pointer;
-  user-select:none;
-}
+    .promo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 1px solid var(--border);
+    }
 
-.tab.active{
-  border-color:#b800ff;
-  color:#e9baff;
-}
+    .promo-body {
+      padding: 18px 16px 20px;
+    }
 
-.section{
-  background:#101017;
-  border:1px solid #292934;
-  border-radius:14px;
-  padding:12px;
-  margin-top:10px;
-}
+    .promo-body h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-.cross{
-  height:150px;
-  display:grid;
-  place-items:center;
-  background:#08080b;
-  border-radius:14px;
-  position:relative;
-  overflow:hidden;
-}
+    .promo-body p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
 
-.crosshair{
-  width:62px;
-  height:62px;
-  position:relative;
-}
+    .price-tag {
+      display: inline-block;
+      background: rgba(255, 107, 0, 0.15);
+      color: var(--orange-light);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 5px 12px;
+      border-radius: 8px;
+    }
 
-.crosshair:before,
-.crosshair:after{
-  content:"";
-  position:absolute;
-  background:var(--cross);
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-}
+    /* Services mini list */
+    .services-mini {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin: 30px 0 40px;
+    }
 
-.crosshair:before{
-  width:62px;
-  height:3px;
-}
+    .mini-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      transition: border-color 0.25s;
+    }
+    .mini-card:hover { border-color: var(--orange); }
+    .mini-card .icon { font-size: 1.7rem; margin-bottom: 6px; }
+    .mini-card h4 { font-size: 0.95rem; font-weight: 600; }
 
-.crosshair:after{
-  height:62px;
-  width:3px;
-}
+    /* Highlight Black Friday */
+    .highlight {
+      background: linear-gradient(135deg, rgba(255, 107, 0, 0.14), rgba(255, 69, 0, 0.07));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 22px;
+      text-align: center;
+      margin: 40px 0;
+    }
+    .highlight h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .highlight p { color: var(--muted); font-size: 0.98rem; }
 
-.dot{
-  position:absolute;
-  width:10px;
-  height:10px;
-  background:var(--cross);
-  border-radius:50%;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  z-index:2;
-}
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: 30px 0 55px;
+    }
+    .cta p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
 
-.target{
-  width:72px;
-  height:108px;
-  border:2px solid #ff3030;
-  border-radius:45% 45% 30% 30%;
-  position:absolute;
-  opacity:.65;
-}
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
 
-.target:before{
-  content:"";
-  position:absolute;
-  width:34px;
-  height:34px;
-  border:2px solid #ff3030;
-  border-radius:50%;
-  left:50%;
-  top:-18px;
-  transform:translateX(-50%);
-}
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--orange), #ff4500);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(255, 107, 0, 0.35);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(255, 107, 0, 0.5);
+    }
 
-.small{
-  font-size:11px;
-  color:var(--muted);
-  line-height:1.45;
-}
+    .btn-wa {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      box-shadow: 0 8px 22px rgba(37, 211, 102, 0.35);
+    }
+    .btn-wa:hover {
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+    }
 
-.value{
-  font-size:18px;
-  font-weight:900;
-  color:#e9baff;
-}
+    .channel-box {
+      background: rgba(37, 211, 102, 0.09);
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      border-radius: 12px;
+      padding: 14px 20px;
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+    .channel-box a {
+      color: var(--green);
+      font-weight: 600;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .channel-box a:hover { text-decoration: underline; }
 
-.notice{
-  padding:10px;
-  border-radius:12px;
-  background:#211426;
-  border:1px solid #4a2759;
-  color:#d9bfe4;
-  font-size:11px;
-  margin-top:10px;
-}
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    footer .brand {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--orange);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
 
-.minimize{
-  position:absolute;
-  right:8px;
-  top:8px;
-  width:26px;
-  height:26px;
-  padding:0;
-  border-radius:50%;
-  background:#292933;
-  border:1px solid #444;
-  color:#fff;
-  font-size:14px;
-}
-
-#panel{
-  position:relative;
-}
-
-.compact-hide .content,
-.compact-hide .hero .sub{
-  display:none!important;
-}
-
-.compact-hide .hero{
-  padding:8px;
-}
-
-.menu{
-  position:fixed;
-  right:10px;
-  bottom:10px;
-  width:min(285px,calc(100% - 20px));
-  background:#12121aee;
-  border:1px solid #343442;
-  border-radius:20px;
-  padding:12px;
-  box-shadow:0 20px 60px #000b;
-  backdrop-filter:blur(14px);
-}
-
-.menu .top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:8px;
-}
-
-.pill{
-  padding:7px 10px;
-  border-radius:999px;
-  background:#25152e;
-  color:#e7caff;
-  font-size:11px;
-}
-
-@media(max-height:600px){
-  .section{padding:9px;margin-top:7px}
-  .cross{height:105px}
-  .hero{padding:9px}
-  .content{padding:9px}
-}
-</style>
+    @media (max-width: 600px) {
+      nav { width: 100%; text-align: center; }
+      nav a { margin: 0 10px; }
+      .promo-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
+  <div class="bg-glow"></div>
 
-<div class="wrap">
-
-  <!-- LOGIN -->
-  <div class="card" id="login">
-    <div class="hero">
-      <div class="logo-icon">☠️</div>
-      <h1>Painel WadXs ★</h1>
-      <div class="sub">Mini painel • Sensibilidade • Mira visual</div>
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo">WZ FLASH ACC <span>🎁</span></a>
+      <span class="badge">100% CONFIÁVEL</span>
+      <nav>
+        <a href="#promos">Promoções</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contactar</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="content">
-      <label>Digite a Key</label>
-      <input id="key" type="password" placeholder="Digite sua key" autocomplete="off">
-      <button style="margin-top:12px" onclick="unlock()">ENTRAR</button>
-      <div id="err" class="small" style="color:#ff7474;margin-top:9px"></div>
-      <div class="notice">
-        Interface local de demonstração.
-        Não injeta código, não altera o Free Fire
-        e não cria aimbot/cheat.
-      </div>
-    </div>
-  </div>
+  <main>
+    <!-- HERO -->
+    <section class="hero container">
+      <h1>Seja bem-vindo ao<br>WZ FLASH ACC 🎁</h1>
+      <p class="subtitle" style="margin-bottom: 12px;">
+        <strong style="color: #25d366; font-size: 1.15rem;">📱 Número principal: 855614345</strong>
+      </p>
+      <p class="subtitle">
+        Contas • Diamantes via ID • Unlock All • Sensis • Xits • Painéis<br>
+        Entrega rápida, suporte ativo e respeito com os clientes em 1º lugar.
+      </p>
+      <div class="trust-badge">✅ 100% Confiável — Receber bem em casa</div>
+    </section>
 
-  <!-- PAINEL -->
-  <div class="card hidden" id="panel">
-    <button class="minimize" onclick="toggleCompact()" aria-label="Minimizar">−</button>
+    <!-- PROMO IMAGES -->
+    <section id="promos" class="container">
+      <h2 class="section-title">🔥 NOSSAS PROMOÇÕES</h2>
 
-    <div class="hero">
-      <div class="logo-icon">☠️</div>
-      <h1>Painel WadXs ★</h1>
-      <div class="sub">Mini painel • Sensibilidade • Mira visual</div>
-    </div>
-
-    <div class="content">
-      <div class="tabs">
-        <div class="tab active" onclick="showTab('sens',this)">Sensi</div>
-        <div class="tab" onclick="showTab('mira',this)">Mira</div>
-        <div class="tab" onclick="showTab('treino',this)">Treino</div>
-      </div>
-
-      <!-- SENSIBILIDADE -->
-      <div id="sens" class="section">
-        <label>DPI</label>
-        <input id="dpi" type="range" min="500" max="1000" value="700"
-          oninput="document.getElementById('dpiv').textContent=this.value">
-        <div class="value">DPI <span id="dpiv">700</span></div>
-
-        <label>Arma / perfil</label>
-        <select id="weapon">
-          <option>Geral</option>
-          <option>Águia do Deserto</option>
-          <option>M1014</option>
-          <option>MP40</option>
-          <option>UMP</option>
-          <option>SCAR</option>
-          <option>XM8</option>
-          <option>AWM</option>
-          <option>M1887</option>
-        </select>
-
-        <button style="margin-top:12px" onclick="generate()">GERAR SENSIBILIDADE</button>
-
-        <div class="section" id="result" style="margin-top:12px">
-          <div class="small">Resultado</div>
-          <div class="value" id="resultText" style="font-size:14px;line-height:1.4">
-            Defina DPI e gere uma configuração.
+      <div class="promo-grid">
+        <!-- Contas -->
+        <article class="promo-card">
+          <img src="contas.jpg" alt="Contas Free Fire à venda - Skins e Moda">
+          <div class="promo-body">
+            <h3>🛒 Contas Free Fire</h3>
+            <p>Contas com skins raras, moda completa e personagens. Entrega segura e rápida.</p>
+            <span class="price-tag">Várias opções disponíveis</span>
           </div>
-        </div>
-      </div>
+        </article>
 
-      <!-- MIRA -->
-      <div id="mira" class="section hidden">
-        <label>Cor da mira</label>
-        <div class="grid">
-          <button class="color red" onclick="setColor('#ff2020')" aria-label="Vermelho"></button>
-          <button class="color blue" onclick="setColor('#168cff')" aria-label="Azul"></button>
-          <button class="color purple" onclick="setColor('#9b2cff')" aria-label="Roxo"></button>
-          <button class="color black" onclick="setColor('#050505')" aria-label="Preto"></button>
-          <button class="color white" onclick="setColor('#ffffff')" aria-label="Branco"></button>
-        </div>
-
-        <label>Formato</label>
-        <select id="shape" onchange="drawCross()">
-          <option value="plus">Cruz</option>
-          <option value="dot">Ponto</option>
-          <option value="circle">Círculo</option>
-        </select>
-
-        <div class="cross" id="crossbox" style="margin-top:10px">
-          <div class="crosshair" id="crosshair">
-            <div class="dot"></div>
+        <!-- Diamantes -->
+        <article class="promo-card">
+          <img src="diamantes.jpg" alt="Diamantes Free Fire via ID - Preços">
+          <div class="promo-body">
+            <h3>💎 Diamantes via ID</h3>
+            <p>Pacotes de diamantes com bónus de 10% já incluso. Entrega em minutos, sem risco de ban.</p>
+            <span class="price-tag">A partir de 95 MT</span>
           </div>
+        </article>
+
+        <!-- Unlock All -->
+        <article class="promo-card">
+          <img src="unlock.jpg" alt="Unlock All Atualizado Free Fire">
+          <div class="promo-body">
+            <h3>🔓 Unlock All Atualizado</h3>
+            <p>Unlock completo + Pega Rank. OB55 • Ping baixo. Contas e pacotes de nível prontos.</p>
+            <span class="price-tag">Disponível agora</span>
+          </div>
+        </article>
+
+        <!-- Sensis -->
+        <article class="promo-card">
+          <img src="sensis.png" alt="Preços de Sensis Free Fire">
+          <div class="promo-body">
+            <h3>⚡ Preços de Sensis</h3>
+            <p>Android 5 MT • iPhone 10 MT • Emulador 15 MT. Principais: Samsung e Xiaomi.</p>
+            <span class="price-tag">Desde 5 MT</span>
+          </div>
+        </article>
+
+        <!-- Xits / Freeze -->
+        <article class="promo-card">
+          <img src="xits.jpg" alt="Xits e Painéis Free Fire">
+          <div class="promo-body">
+            <h3>🖥️ Xits & Painéis FF</h3>
+            <p>Xits de qualidade, Freeze e painéis exclusivos. Melhora a tua experiência no jogo.</p>
+            <span class="price-tag">Pergunta no WhatsApp</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- OUTROS SERVIÇOS -->
+    <section id="servicos" class="container">
+      <h2 class="section-title">AQUI TAMBÉM PODES</h2>
+      <div class="services-mini">
+        <div class="mini-card">
+          <div class="icon">🏆</div>
+          <h4>Campeonatos FF</h4>
         </div>
+        <div class="mini-card">
+          <div class="icon">🎮</div>
+          <h4>Jogar BR ou CS</h4>
+        </div>
+        <div class="mini-card">
+          <div class="icon">🎁</div>
+          <h4>Sorteio de Presentes</h4>
+        </div>
+        <div class="mini-card">
+          <div class="icon">🖤</div>
+          <h4>Black Friday</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLACK FRIDAY -->
+    <section class="container">
+      <div class="highlight">
+        <h2>🖤 BLACK FRIDAY — Todas as Sextas</h2>
+        <p>Descontos especiais e ofertas exclusivas todas as sextas-feiras.<br>Não percas!</p>
+      </div>
+    </section>
+
+    <!-- CTA / CONTACTO -->
+    <section id="contato" class="cta container">
+      <p>
+        <em>É isso! Seja bem-vindo hoje, amanhã e para todo o sempre.</em><br>
+        <strong>Connosco tens tudo de bom que queiras.</strong>
+      </p>
+
+      <div class="btn-group">
+        <a href="https://wa.me/258855614345" class="btn btn-wa" target="_blank" rel="noopener">
+          💬 Chama no WhatsApp — 855614345
+        </a>
+        <a href="https://whatsapp.com/channel/0029VbD3j2I9Bb64vEX7ic1v" class="btn btn-wa" target="_blank" rel="noopener">
+          📢 Siga o Canal
+        </a>
       </div>
 
-      <!-- TREINO -->
-      <div id="treino" class="section hidden">
-        <div class="small">Alvo visual para treino de posicionamento da mira.</div>
-        <div class="cross" style="margin-top:10px">
-          <div class="target"></div>
-          <div class="crosshair"><div class="dot"></div></div>
-        </div>
-        <div class="notice">
-          O alvo é apenas visual: não fixa automaticamente em jogadores
-          nem controla o jogo.
-        </div>
+      <div class="channel-box">
+        Siga o canal <strong>WZ FLASH ACC 🎁</strong> no WhatsApp:<br>
+        <a href="https://whatsapp.com/channel/0029VbD3j2I9Bb64vEX7ic1v" target="_blank" rel="noopener">
+          https://whatsapp.com/channel/0029VbD3j2I9Bb64vEX7ic1v
+        </a>
       </div>
 
-      <!-- WHATSAPP -->
-      <div class="section" style="margin-top:10px;text-align:center">
-        <div class="small" style="margin-bottom:8px">🎁 WZ FLASH ACC</div>
-        <button onclick="openWhatsAppChannel()" style="background:#25D366;color:#07130a">
-          📲 SEGUIR CANAL NO WHATSAPP
-        </button>
-      </div>
+      <p style="margin-top: 28px; font-size: 0.95rem;">
+        Vem aqui no <strong style="color: var(--orange);">WZ FLASH ACC 🎁</strong>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="brand">® WZ FLASH ACC 🎁</div>
+      <p>Respeito com os clientes em 1º lugar • Receber bem em casa</p>
+      <p style="margin-top: 6px; font-size: 0.8rem;">© 2026 WZ FLASH ACC. Todos os direitos reservados.</p>
     </div>
-  </div>
-</div>
-
-<!-- MENU FLUTUANTE -->
-<div class="menu" id="floatMenu">
-  <div class="top">
-    <b>WadXs ★</b>
-    <span class="pill">WADXS</span>
-  </div>
-  <div class="small">PAINEL WADXS ★</div>
-</div>
-
-<script>
-const KEY = "WadXsfreestyle999";
-
-function toggleCompact(){
-  document.getElementById("panel").classList.toggle("compact-hide");
-}
-
-function unlock(){
-  const value = document.getElementById("key").value;
-  if(value === KEY){
-    document.getElementById("login").classList.add("hidden");
-    document.getElementById("panel").classList.remove("hidden");
-    document.getElementById("err").textContent = "";
-  }else{
-    document.getElementById("err").textContent = "Key incorreta.";
-  }
-}
-
-function showTab(id, el){
-  ["sens","mira","treino"].forEach(function(x){
-    document.getElementById(x).classList.toggle("hidden", x !== id);
-  });
-  document.querySelectorAll(".tab").forEach(function(x){
-    x.classList.remove("active");
-  });
-  el.classList.add("active");
-}
-
-function generate(){
-  const dpi = Number(document.getElementById("dpi").value);
-  const weapon = document.getElementById("weapon").value;
-
-  // perfil por arma (ajuste base diferente)
-  const profiles = {
-    "Geral":              { g: 0, r: -4, x2: -9, x4: -14, s: -20 },
-    "Águia do Deserto":   { g: 8, r: 2,  x2: -4, x4: -10, s: -18 },
-    "M1014":              { g: 12,r: 6,  x2: 0,  x4: -6,  s: -14 },
-    "MP40":               { g: -6,r: -10,x2: -15,x4: -20, s: -26 },
-    "UMP":                { g: -4,r: -8, x2: -13,x4: -18, s: -24 },
-    "SCAR":               { g: 2, r: -2, x2: -7, x4: -12, s: -18 },
-    "XM8":                { g: 4, r: 0,  x2: -5, x4: -11, s: -17 },
-    "AWM":                { g: -10,r:-14,x2: -18,x4: -22, s: -8  },
-    "M1887":              { g: 14,r: 8,  x2: 2,  x4: -4,  s: -12 }
-  };
-
-  const p = profiles[weapon] || profiles["Geral"];
-
-  // base pela DPI + pequena variação a cada clique
-  const dpiFactor = (dpi - 500) * 0.085;
-  const jitter = () => Math.floor(Math.random() * 7) - 3; // -3 a +3
-
-  let geral  = Math.round(185 - dpiFactor + p.g  + jitter());
-  let red    = Math.round(175 - dpiFactor + p.r  + jitter());
-  let x2     = Math.round(160 - dpiFactor + p.x2 + jitter());
-  let x4     = Math.round(145 - dpiFactor + p.x4 + jitter());
-  let sniper = Math.round(130 - dpiFactor + p.s  + jitter());
-
-  // limites seguros do Free Fire
-  const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
-  geral  = clamp(geral,  50, 200);
-  red    = clamp(red,    40, 195);
-  x2     = clamp(x2,     30, 185);
-  x4     = clamp(x4,     25, 175);
-  sniper = clamp(sniper, 20, 170);
-
-  document.getElementById("resultText").innerHTML =
-    "<b>" + weapon + "</b><br>" +
-    "Geral <b>" + geral + "</b> · Red Dot <b>" + red + "</b><br>" +
-    "2x <b>" + x2 + "</b> · 4x <b>" + x4 + "</b> · Sniper <b>" + sniper + "</b>";
-}
-
-function setColor(color){
-  document.documentElement.style.setProperty("--cross", color);
-}
-
-function drawCross(){
-  const shape = document.getElementById("shape").value;
-  const element = document.getElementById("crosshair");
-  element.className = "crosshair";
-  element.style = "";
-  if(shape === "dot"){
-    element.style = "width:12px;height:12px;";
-  }else if(shape === "circle"){
-    element.style = "border:3px solid var(--cross);border-radius:50%;width:40px;height:40px;";
-  }
-}
-
-function openWhatsAppChannel(){
-  const url = "https://whatsapp.com/channel/0029VbD3j2I9Bb64vEX7ic1v";
-  window.open(url, "_blank");
-}
-
-document.getElementById("key").addEventListener("keydown", function(e){
-  if(e.key === "Enter") unlock();
-});
-</script>
+  </footer>
 </body>
 </html>
